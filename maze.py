@@ -87,7 +87,7 @@ class Maze:
                     self._maze_cells[row, col] == self.TRIED_TOKEN
                     or self._maze_cells[row, col] == self.PATH_TOKEN
                 ):
-                    self._maze_cells[row, col] = None
+                    self._maze_cells[row, col] = "_"
 
     def __str__(self):
         """Returns a text-based representation of the maze."""
@@ -100,7 +100,7 @@ class Maze:
                 else:
                     zminna += "_ "
             maze.append(zminna)
-        return "\n".join(maze)
+        return "\n".join(maze).strip() + " "
 
     def _valid_move(self, row, col):
         """Returns True if the given cell position is a valid move."""
@@ -122,7 +122,6 @@ class Maze:
 
     def _mark_path(self, row, col):
         """Drops a "path" token at the given cell."""
-        # print("Dropping")
         self._maze_cells[row, col] = self.PATH_TOKEN
 
 
